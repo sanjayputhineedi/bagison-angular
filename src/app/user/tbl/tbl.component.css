@@ -1,0 +1,22 @@
+.full-width-table {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.mat-table {
+  box-sizing: border-box;
+}
+#navsticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
+  background-color: #F5F5F5;
+  z-index: 1;
+  color:rgb(0, 0, 0);
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding:1% 1% 1% 5%; 
+}

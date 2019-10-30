@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'side' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-nav-list>
+      <h1 style="display: flex;" class="logo">
+        <i class="mylogo material-icons">
+          toys
+        </i> {{title}}
+      </h1>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="'/home'">
+        <i class="material-icons">home</i>Home
+      </a>
+      <a mat-list-item [routerLink]="'/dashboard'" [routerLinkActive]="['navactive']">
+        <i class="material-icons">insert_chart_outlined</i>Dashboard
+      </a>
+      <a mat-list-item [routerLink]="'/users'" [routerLinkActive]="['navactive']">
+        <i class="material-icons">account_circle</i>User
+      </a>
+      <a mat-list-item [routerLink]="'/address'" [routerLinkActive]="['navactive']">
+        <i class="material-icons">gps_fixed</i>Address
+      </a>
+      <a mat-list-item [routerLink]="'/accounts'" [routerLinkActive]="['navactive']">
+        <i class="material-icons">power_settings_new</i>Signout
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar id="navsticky">
+     <!--  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <i class="material-icons">
+          menu_open
+        </i>
+      </button> -->
+      <span (click)="drawer.toggle()" id="logo">
+        <i class="material-icons">menu_open</i>
+      </span>
+      <h1 class="logo">
+        {{title}}
+      </h1>
+      <span class="example-fill-remaining-space"></span>
+      <span [matMenuTriggerFor]="menu"><img src="assets/sanju.jpg">
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button class="profilelink" mat-menu-item [routerLink]="'/dashboard'" [routerLinkActive]="['profiles']">
+          <i class="material-icons">insert_chart_outlined</i>Dashboard
+        </button>
+        <button class="profilelink" mat-menu-item [routerLink]="'/users'" [routerLinkActive]="['profiles']">
+          <i class="material-icons">account_circle</i>Users
+        </button>
+        <button class="profilelink" mat-menu-item [routerLink]="'/address'" [routerLinkActive]="['profiles']">
+          <i class="material-icons">gps_fixed</i>Address
+        </button>
+        <button class="profilelink" mat-menu-item [routerLink]="'/accounts'" [routerLinkActive]="['profiles']">
+          <i class="material-icons">power_settings_new</i>Signout
+        </button>
+      
+      </mat-menu></span>
+    </mat-toolbar>
+    <div style="margin:2rem;">
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
